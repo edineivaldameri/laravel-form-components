@@ -11,6 +11,8 @@ class FormInput extends Component
     public string $label;
     public string $type;
     public bool $floating;
+    public bool $required;
+    public string $inputmode = 'text';
 
     public $value;
 
@@ -26,6 +28,7 @@ class FormInput extends Component
         $bind = null,
         $default = null,
         $language = null,
+        bool $required = false,
         bool $showErrors = true,
         bool $floating = false
     ) {
@@ -34,9 +37,18 @@ class FormInput extends Component
         $this->type       = $type;
         $this->showErrors = $showErrors;
         $this->floating   = $floating && $type !== 'hidden';
+        $this->required = $required;
 
         if ($language) {
             $this->name = "{$name}[{$language}]";
+        }
+
+        if ($type == 'number') {
+            $this->inputmode = 'decimal';
+        } else if (in_array($type, ['tel', 'search', 'email', 'url'])) {
+            $this->inputmode = $type;
+        } else {
+            $this->inputmode = 'text';
         }
 
         $this->setValue($name, $bind, $default, $language);
