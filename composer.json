@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "EdineiValdameri\\LaravelFormComponents\\": "src"
+            "ProtoneMedia\\LaravelFormComponents\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EdineiValdameri\\LaravelFormComponents\\Tests\\": "tests"
+            "ProtoneMedia\\LaravelFormComponents\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -55,7 +55,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "EdineiValdameri\\LaravelFormComponents\\Support\\ServiceProvider"
+                "ProtoneMedia\\LaravelFormComponents\\Support\\ServiceProvider"
             ]
         }
     }
